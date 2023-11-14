@@ -8,9 +8,13 @@ function ticketTrain(event) {
     let age = document.getElementById("age").value;
     let km = document.getElementById("km").value;
 
+
+    
+    document.getElementById("ticket_start_station").innerHTML = startStation;
+    document.getElementById("ticket_end_station").innerHTML = endStation;
+    
     let totalPrice = km * 0.21;
     let roundedPrice = totalPrice.toFixed(2);
-
 
     if (isNaN(km) || isNaN(age)) {
         alert("Mi dispiace non hai inserito un valore accettato nei campi 'Età' o in 'Age'!")
@@ -24,13 +28,12 @@ function ticketTrain(event) {
             totalPrice = totalPrice - discountOver65;           
         }                  
         document.getElementById("price").innerHTML = roundedPrice +("$");
-    }
 
-    
+        document.getElementById("ticket").classList.remove("d-none");
+
+    } 
     // prendere le value inserite dall' utente ed inserirle nel codice html
-    document.getElementById("ticket_start_station").innerHTML = startStation;
-    document.getElementById("ticket_end_station").innerHTML = endStation;
-    
+   
 
 
 }
