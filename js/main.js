@@ -5,11 +5,33 @@ function ticketTrain(event) {
 
     let startStation = document.getElementById("start_station").value;
     let endStation = document.getElementById("end_station").value;
+    let age = document.getElementById("age").value;
+    let km = document.getElementById("km").value;
+
+    let totalPrice = km * 0.21;
+    let roundedPrice = totalPrice.toFixed(2);
+
+
+    if (isNaN(km) || isNaN(age)) {
+        alert("Mi dispiace non hai inserito un valore accettato nei campi 'Età' o in 'Age'!")
+    } else {
+    
+        if (age < 18) {
+            let discountUnderage = ((totalPrice / 100) * 20);
+            totalPrice = totalPrice - discountUnderage;
+        } else if (age >= 65) {
+            let discountOver65 = ((totalPrice / 100) * 40);
+            totalPrice = totalPrice - discountOver65;           
+        }                  
+        document.getElementById("price").innerHTML = roundedPrice +("$");
+    }
+
+    
     // prendere le value inserite dall' utente ed inserirle nel codice html
     document.getElementById("ticket_start_station").innerHTML = startStation;
     document.getElementById("ticket_end_station").innerHTML = endStation;
+    
+
 
 }
-if (startStation != Roma || Milano || Napoli){
-    alert('Inserire una stazione valida');
-}
+

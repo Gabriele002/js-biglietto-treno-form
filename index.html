@@ -24,7 +24,6 @@
         </label>
         <div class="col-sm">
           <select id="start_station" class="form-select" aria-label="Default select example">
-            <option selected> Seleziona la stazione di partenza...</option>
             <option value="Roma">Roma</option>
             <option value="Milano">Milano</option>
             <option value="Napoli">Napoli</option>
@@ -38,7 +37,6 @@
         </label>
         <div class="col-sm">
           <select id="end_station" class="form-select" aria-label="Default select example">
-            <option selected>Seleziona la stazione di arrivo...</option>
             <option value="Roma">Roma</option>
             <option value="Milano">Milano</option>
             <option value="Napoli">Napoli</option>
@@ -46,11 +44,20 @@
         </div>
       </div>
       <div class="row mb-3">
-        <label for="surname" class="col-sm col-form-label">
+        <label for="age" class="col-sm col-form-label">
           <h3>Eta</h3>
         </label>
         <div class="col-sm">
-          <input type="text" class="form-control" id="surname">
+          <input type="text" class="form-control" id="age">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="km" class="col-sm col-form-label">
+          <h3>KM da percorrere</h3>
+        </label>
+        <div class="col-sm">
+          <input type="text" class="form-control" id="km">
         </div>
       </div>
       <button type="submit" class="btn btn-primary text-end">Genera biglietto</button>
@@ -59,7 +66,7 @@
 
     <div class="row justify-content-center align-items-center mt-5 p-5 ">
       <div class="col-4 ">
-        <div id="card_password" class="card shadow p-3 mb-5 bg-body-tertiary rounded border-info">
+        <div class="card shadow p-3 mb-5 bg-body-tertiary rounded border-info">
           <div class="card-header">
             <h3> Ticket trenitalia</h3>
           </div>
@@ -69,7 +76,7 @@
 
           <div class="row">
             <div class="col">
-              <h5 class="card-title">Stazione di partenza</h5>   
+              <h5 class="card-title">Stazione di partenza:</h5>   
             </div>  
             <div class="col mb-5">
               <span id="ticket_start_station"></span> 
@@ -78,14 +85,20 @@
 
           <div class="row">
             <div class="col">
-              <h5 class="card-title">Stazione di arrivo</h5>   
+              <h5 class="card-title">Stazione di arrivo:</h5>   
             </div>  
-            <div class="col">
+            <div class="col mb-5">
               <span id="ticket_end_station"></span> 
             </div>
-          </div>
-            <p> <span id="user_password"></span></p>
-          </div>
+
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title">Prezzo</h5>   
+              </div>  
+              <div class="col">
+                <span id="price"></span> 
+              </div>
+
         </div>
       </div>
   </div>
