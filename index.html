@@ -16,49 +16,86 @@
 </head>
 
 <body>
-  <div class="container mtop-100">
-    <form id="form_ticket_input" data-bitwarden-watching="1" onsubmit="userHasFinishDataCompletion(event)">
-      <div class="row">
-          <div class="col-12 ticket d-flex justify-content-between">
-              <div class="header ">Milano Centrale to Roma Termini Train Ticket</div>
-              <div class="sub-header ">Stazione di Partenza</div>
-              <p>Milano Centrale</p>
-              <p>Ore 18:20 07/12/2018</p>
-          </div>
-        <div class="container img-sfondo ">
-          <div class="row mt-2">
-            <div class="col-12 d-flex justify-content-between">
-              <h5>Stazione di Partenza</h5>
-              <p>Milano Centrale</p>
-              <p>Ore 21:40 - 07/12/2018</p>
-            </div>
-          <hr>  
-          </div>
-            <div class="col-12 d-flex justify-content-between mt-4">
-              <h5>Stazione di Arrivo</h5>
-              <p>Roma Termini</p>
-              <p>Ore 21:40 - 07/12/2018</p>
-            </div>
-          <hr>
-            <div  class="col-12 d-flex justify-content-between">
-              <p>Numero Treno</p>
-              <p>Treno: Frecciarossa 9553</p>
-            </div>
-          <hr>
-          <div class="col-12 d-flex justify-content-between">
-            <p>Servizio: 2° Standard</p>
-            <p class="me-100">Carrozza: 7B</p>
-            <p>Posti: 5D</p>
-          </div>
-          <div class="col text-center">
-            <p>Il corrispettivo pagato è relativo ad operazioni assoggettate ad L.V. </p>
-          </div> 
+  <div class="container text-center w-container mt-100">
+    <form id="form_data_input" class="p-3 bg-danger bg-opacity-75 rounded-5" data-bitwarden-watching="1" onsubmit="ticketTrain(event)">
+      <div class="row mb-3">
+        <label for="start_station" class="col col-form-label">
+          <h3>Stazione di partenza</h3>
+        </label>
+        <div class="col-sm">
+          <select id="start_station" class="form-select" aria-label="Default select example">
+            <option selected> Seleziona la stazione di partenza...</option>
+            <option value="Roma">Roma</option>
+            <option value="Milano">Milano</option>
+            <option value="Napoli">Napoli</option>
+          </select>
         </div>
-        <div class="col bg-secondary mt-3 p-2 bg-opacity-25 rounded-5">
-          <h3 id="price" class="text-end mt-3 "></h3>
+      </div>
+
+      <div class="row mb-3">
+        <label for="end_station" class="col col-form-label">
+          <h3>Stazione di arrivo</h3>
+        </label>
+        <div class="col-sm">
+          <select id="end_station" class="form-select" aria-label="Default select example">
+            <option selected>Seleziona la stazione di arrivo...</option>
+            <option value="Roma">Roma</option>
+            <option value="Milano">Milano</option>
+            <option value="Napoli">Napoli</option>
+          </select>
         </div>
-    </form>   
+      </div>
+      <div class="row mb-3">
+        <label for="surname" class="col-sm col-form-label">
+          <h3>Eta</h3>
+        </label>
+        <div class="col-sm">
+          <input type="text" class="form-control" id="surname">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary text-end">Genera biglietto</button>
+    </form>
   </div>
+
+    <div class="row justify-content-center align-items-center mt-5 p-5 ">
+      <div class="col-4 ">
+        <div id="card_password" class="card shadow p-3 mb-5 bg-body-tertiary rounded border-info">
+          <div class="card-header">
+            <h3> Ticket trenitalia</h3>
+          </div>
+          <img src="./img/qr.jpg" class="card-img-top" alt="...">
+          
+          <hr>
+
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title">Stazione di partenza</h5>   
+            </div>  
+            <div class="col mb-5">
+              <span id="ticket_start_station"></span> 
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title">Stazione di arrivo</h5>   
+            </div>  
+            <div class="col">
+              <span id="ticket_end_station"></span> 
+            </div>
+          </div>
+            <p> <span id="user_password"></span></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
   <!-- importazione MIO file di script -->
   <script src="./js/main.js"></script>
   <!-- importazione del file di script di Boostrap -->

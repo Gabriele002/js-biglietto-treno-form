@@ -1,39 +1,15 @@
+// Questo è il file che contiene tutto il codice JS della pagina web
 
-    let distanceInKm = parseFloat(prompt("Inserisci il numero di chilometri da percorrere:"));
-    let passengerAge = parseFloat(prompt("Inserisci la tua età"));
-    //impostare prezzo per km 
-    const priceForKm = 0.21
-    let totalPrice = distanceInKm * priceForKm;
-    let roundedPrice = totalPrice.toFixed(2);
-    
-    
-    
-    if (isNaN(distanceInKm) || isNaN(passengerAge)) {
-        alert("Mi dispiace non hai inserito entrambi dei numeri!")
-    } else {
-    
-        if (passengerAge < 18) {
-            let discountUnderage = ((totalPrice / 100) * 20);
-            totalPrice = totalPrice - discountUnderage;
-        } else if (passengerAge >= 65) {
-            let discountOver65 = ((totalPrice / 100) * 40);
-            totalPrice = totalPrice - discountOver65;           
-        }                  
+function ticketTrain(event) {
+    event.preventDefault();
 
-        document.getElementById("price").innerHTML =("Prezzo totale:")+ (" ") + roundedPrice +("$");
+    let startStation = document.getElementById("start_station").value;
+    let endStation = document.getElementById("end_station").value;
+    // prendere le value inserite dall' utente ed inserirle nel codice html
+    document.getElementById("ticket_start_station").innerHTML = startStation;
+    document.getElementById("ticket_end_station").innerHTML = endStation;
 
-    }
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
+}
+if (startStation != Roma || Milano || Napoli){
+    alert('Inserire una stazione valida');
+}
